@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block body %}
+    <div class="toolbar">
+        <div class="tb-buttons">
+            <a href="#home" class="tb-button">Home</a>
+            <a href="#about" class="tb-button">About</a>
+            <a href="#contact" class="tb-button">Contact us</a>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="user-buttons">
+                <a href="{{ url_for('profile') }}" class="user-btn" style="background-image: url({{ url_for('static', filename = 'profile.png') }});"></a>
+                <a href="{{ url_for('files') }}" class="user-btn" style="background-image: url({{ url_for('static', filename = 'files.png') }});"></a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="login-btn">Login</a>
+        {% endif %}
+    </div>
+    <div class="layout" id="home">
+        <p class="layout-title">SecureCloud<br><span>more security</span></p>
+        <img src="{{ url_for('static', filename = 'shield.png') }}" alt="" class="layout-icon">
+    </div>
+    <div class="layout" style="flex-direction: column; justify-content: center;" id="about">
+        <div class="about-bar">
+            <img src="{{ url_for('static', filename = 'fast.png') }}" alt="" class="about-icon">
+            <p class="about-title"><br>Simple and Faster<br><span>Simple user interface design with fast upload and download speed.</span></p>
+        </div>
+        <div class="about-bar">
+            <img src="{{ url_for('static', filename = 'secfiles.png') }}" alt="" class="about-icon">
+            <p class="about-title"><br>Secure files<br><span>Encrypted file protection with SecureCloud.</span></p>
+        </div>
+        <div class="about-bar">
+            <img src="{{ url_for('static', filename = 'security.png') }}" alt="" class="about-icon">
+            <p class="about-title"><br>Focused on security<br><span>End-to-end encrypted security and more.</span></p>
+        </div>
+    </div>
+    <div class="layout" style="flex-direction: column;" id="contact">
+        <div class="contact-top">
+            <img src="{{ url_for('static', filename = 'logo.png') }}" alt="SecureCloud">
+        </div>
+        <div class="contact-apps">
+            <a href="#" class="ca-main">
+                <img src="{{ url_for('static', filename = 'github.png') }}" alt="App">
+                <p>GitHub</p>
+            </a>
+            <a href="#" class="ca-main">
+                <img src="{{ url_for('static', filename = 'insta.png') }}" alt="App">
+                <p>Instagram</p>
+            </a>
+            <a href="#" class="ca-main">
+                <img src="{{ url_for('static', filename = 'facebook.png') }}" alt="App">
+                <p>Facebook</p>
+            </a>
+            <a href="#" class="ca-main">
+                <img src="{{ url_for('static', filename = 'youtube.png') }}" alt="App">
+                <p>YouTube</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

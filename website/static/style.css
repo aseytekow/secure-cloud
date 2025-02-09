@@ -1,0 +1,481 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    transition: .5s;
+    text-decoration: none;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #111;
+}
+
+.toolbar {
+    align-items: center;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.tb-buttons {
+    background-color: #111;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    padding: 5px 15px;
+    width: auto;
+}
+
+.tb-button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 25px;
+    margin: 0 -10px;
+    text-decoration: none;
+    width: 200px;
+}
+
+.tb-button:hover {
+    background-color: #222;
+    box-shadow: 0 0 40px #222;
+}
+
+.login-btn {
+    border-radius: 100px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 25px;
+    right: 20px;
+    position: absolute;
+    padding: 5px 20px;
+}
+
+.login-btn:hover {
+    background-color: #3eb489;
+    border: 2px solid #3eb489;
+    color: #111;
+}
+
+.layout {
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+}
+
+.layout-title {
+    color: #fff;
+    font-size: 80px;
+    margin: 200px;
+}
+
+.layout-title > span {
+    font-size: 20px;
+    position: absolute;
+}
+
+@keyframes shield-anim {
+    0% {
+        filter: drop-shadow(0 0 0px #3eb489);
+    }
+    50% {
+        filter: drop-shadow(0 0 40px #3eb489);
+    }
+    100% {
+        filter: drop-shadow(0 0 0px #3eb489);
+    }
+}
+
+.layout-icon {
+    animation: shield-anim 5s linear infinite;
+    height: 850px;
+    margin: 0 100px;
+    width: 850px;
+}
+
+.about-bar {
+    align-items: center ;
+    background-color: #333;
+    box-shadow: 0 0 40px #333;
+    border-radius: 100px;
+    display: flex;
+    height: 100px;
+    margin-top: 80px;
+    padding: 0 10px;
+    width: 60%;
+}
+
+.about-bar:hover {
+    height: 200px;
+    padding: 0 20px;
+}
+
+.about-icon {
+    background-color: #444;
+    border-radius: 100px;
+    height: 70px;
+    padding: 10px;
+    width: 70px;
+}
+
+.about-bar:hover .about-icon {
+    height: 160px;
+    width: 160px;
+}
+
+.about-title {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+.about-title > span {
+    color: #ccc;
+    opacity: 0;
+    font-size: 23px;
+}
+
+.about-bar:hover .about-title {
+    font-size: 40px;
+    margin-top: -50px;
+}
+
+.about-bar:hover .about-title > span {
+    opacity: 1;
+}
+
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.main-title {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 800;
+    margin-top: 40PX;
+}
+
+.login-form {
+    background-color: #222;
+    backdrop-filter: opacity(0);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 100px;
+    margin-top: 100px;
+    padding: 20px 0;
+    width: 50%;
+}
+
+.login-form > input {
+    border: none;
+    border-radius: 100px;
+    margin-left: 10%;
+    font-size: 30px;
+    padding: 5px 20px;
+    margin-top: 30px;
+    outline: none;
+    width: 80%;
+}
+
+.login-form > input[type = 'submit'] {
+    background-color: transparent;
+    border: 2px solid #3eb489;
+    color: #3eb489;
+    margin-left: 70%;
+    width: 20%;
+}
+
+.login-form > input[type = 'submit']:hover {
+    background-color: #3eb489;
+    color: #222;
+}
+
+.login-footer {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    bottom: 30px;
+}
+
+.login-footer > a {
+    color: #3eb489;
+}
+
+.login-footer > a:hover {
+    text-shadow: 0 0 30px #3eb489;
+}
+
+@keyframes flash {
+    0% {
+        margin-top: -40px;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+.flash-error {
+    animation: flash 1s;
+    background-color: #f00;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+}
+
+.user-buttons {
+    background-color: #111;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    padding: 5px 5px;
+    position: absolute;
+    right: 20px;
+    width: auto;
+}
+
+.user-btn {
+    border-radius: 100px;
+    background-position: center;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+}
+
+.user-btn:hover {
+    background-color: #222;
+    box-shadow: 0 0 40px #222;
+}
+
+.contact-top {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    margin-top: 200px;
+    width: auto;
+}
+
+.contact-top > img {
+    height: 500px;
+    margin-top: -100px;
+    width: 500px;
+}
+
+.contact-apps {
+    align-items: center;
+    background-color: #222;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    bottom: 50px;
+    height: 100px;
+    position: absolute;
+    width: auto;
+}
+
+.ca-main {
+    align-items: center;
+    background-color: #333;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    padding: 0 5px;
+    overflow: hidden;
+    margin: 0 20px;
+    width: 80px;
+}
+
+.ca-main:hover {
+    box-shadow: 0 0 40px #333;
+    width: 210px;
+}
+
+.ca-main > img {
+    height: 70px;
+    width: 70px;
+}
+
+.ca-main > p {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.profile-layout {
+    align-items: center;
+    background-color: #222;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 60px 20px;
+    width: 60%;
+}
+
+.profile-layout > img {
+    background-color: #333;
+    border-radius: 100px;
+    height: 80px;
+    width: 80px;
+}
+
+.profile-layout > p {
+    color: #fff;
+    font-size: 26px;
+    margin-left: 30px;
+}
+
+.top-borders {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    margin-top: 150px;
+}
+
+.bottom-borders {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    margin-bottom: 100px;
+}
+
+.files-main {
+    height: 500px;
+    margin-top: 150px;
+    padding: 0 35px;
+    width: 60%;
+}
+
+.files-title {
+    color: #fff;
+    font-size: 30px;
+    border-bottom: 2px solid #fff;
+    padding: 10px 0;
+}
+
+.file-list {
+    height: 250px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.file-layout {
+    align-items: center;
+    background-color: #222;
+    display: flex;
+    flex-direction: row;
+    height: 130px;
+    padding: 70px 20px;
+    position: relative;
+    width: 100%;
+}
+
+.file-list .file-layout:first-child {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.file-list .file-layout:last-child {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px
+}
+
+.file-layout > img {
+    background-color: #333;
+    border-radius: 100px;
+    height: 100px;
+    padding: 5px;
+    width: 100px;
+}
+
+.file-layout > p {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 65%;
+}
+
+.file-btns {
+    background-color: #111;
+    border-radius: 100px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 30px;
+    padding: 5px 5px;
+    width: auto;
+}
+
+.file-btn {
+    border-radius: 100px;
+    background-position: center;
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.delete-btn {
+    background-image: url(../static/delete.png);
+}
+
+.save-btn {
+    background-image: url(../static/save.png);
+}
+
+.file-btn:hover {
+    background-color: #222;
+    box-shadow: 0 0 40px #222;
+}
+
+.upload-form {
+    position: absolute;
+    right: 20px;
+}
+
+.upload-btn {
+    background-color: #111;
+    background-image: url(../static/upload.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+}
+
+.no-files {
+    color: #fff;
+    font-size: 40px;
+    margin-top: 40px;
+    text-align: center;
+}

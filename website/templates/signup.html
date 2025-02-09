@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Sign Up
+{% endblock %}
+{% block body %}
+    <div class="main">
+        {% with msgs = get_flashed_messages(with_categories = true) %}
+            {% if msgs %}
+                {% for cat, msg in msgs %}
+                    <p class="flash-error">{{ msg }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <p class="main-title">Sign Up</p>
+        <form action="{{ url_for('signup') }}" class="login-form" method="post">
+            <input type="text" name="username" placeholder="Username" minlength="4" maxlength="32" required>
+            <input type="email" name="email" placeholder="Email" minlength="8" maxlength="72" required>
+            <input type="password" name="psw" placeholder="Password" minlength="8" maxlength="64" required>
+            <input type="password" name="cpsw" placeholder="Complete password" minlength="8" maxlength="64" required>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p class="login-footer">Have a account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+{% endblock %}

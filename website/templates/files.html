@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}
+    Files
+{% endblock %}
+{% block body %}
+    <div class="main">
+        <div class="toolbar">
+            <div class="tb-buttons">
+                <a href="{{ url_for('home') }}" class="tb-button">Home</a>
+                <a href="{{ url_for('profile') }}" class="tb-button">Profile</a>
+            </div>
+            <form action="{{ url_for('files') }}" class="upload-form" method="post" enctype="multipart/form-data">
+                <div class="upload-btn">
+                    <input type="file" name="file" id="fileInp" style="display: none;">
+                </div>
+            </form>
+        </div>
+        <div class="files-main">
+            <p class="files-title">{{ count }} files</p>
+            {% if files %}
+                <div class="file-list">
+                    {% for file in files %}
+                        <div class="file-layout" style="margin-top: 0;">
+                            <img src="{{ url_for('static', filename = 'files.png') }}" alt="">
+                            <p>{{ file[1] }}</p>
+                            <div class="file-btns">
+                                <form action="{{ url_for('files') }}" id="deleteForm" method="get">
+                                    <div class="file-btn delete-btn">
+                                        <input type="text" name="delete" id="deleteInp" value="{{ file[0] }}" style="display: none;">
+                                    </div>
+                                </form>
+                                <form action="{{ url_for('files') }}" id="downloadForm" method="get">
+                                    <div class="file-btn save-btn">
+                                        <input type="text" name="download" id="downloadInp" value="{{ file[0] }}" style="display: none;">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-files">No files!</p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        const uploadForm = document.querySelector('.upload-form')
+        const uploadBtn = document.querySelector('.upload-btn')
+        const fileInp = document.getElementById('fileInp')
+        const deleteForm = document.getElementById('deleteForm')
+        const deleteBtn = document.querySelector('.delete-btn')
+        const downloadForm = document.getElementById('downloadForm')
+        const saveBtn = document.querySelector('.save-btn')
+
+        uploadBtn.addEventListener('click', () => {
+            fileInp.click()
+        })
+
+        fileInp.addEventListener('change', () => {
+            uploadForm.submit()
+        })
+
+        deleteBtn.addEventListener('click', () => {
+            deleteForm.submit()
+        })
+
+        saveBtn.addEventListener('click', () => {
+            downloadForm.submit()
+        })
+    </script>
+{% endblock %}

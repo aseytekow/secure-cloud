@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    Profile
+{% endblock %}
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="main">
+            <div class="toolbar">
+                <div class="tb-buttons">
+                    <a href="{{ url_for('home') }}" class="tb-button">Home</a>
+                    <a href="{{ url_for('files') }}" class="tb-button">Files</a>
+                </div>
+            </div>
+            <div class="profile-layout top-borders">
+                <img src="{{ url_for('static', filename = 'profile.png') }}" alt="">
+                <p>{{ user.username }}</p>
+            </div>
+            <div class="profile-layout bottom-borders">
+                <img src="{{ url_for('static', filename = 'email.png') }}" alt="">
+                <p>{{ user.email }}</p>
+            </div>
+            <a href="{{ url_for('logout') }}" class="profile-layout top-borders" style="margin-top: 30px;">
+                <img src="{{ url_for('static', filename = 'logout.png') }}" alt="">
+                <p style="color: red;">Logout</p>
+            </a>
+            <a href="{{ url_for('logout') }}?del=true" class="profile-layout bottom-borders">
+                <img src="{{ url_for('static', filename = 'delacc.png') }}" alt="">
+                <p style="color: red;">Delete account</p>
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}
